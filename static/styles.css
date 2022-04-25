@@ -1,0 +1,20 @@
+label{
+  display: None;
+}
+
+/*Classes */
+.btn {
+    margin-top: 1%;
+}
+
+.table {
+    border: 1px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 60%;
+}
+
+.title {
+    font-family: 'Pacifico', cursive;
+    text-align: center;
+}

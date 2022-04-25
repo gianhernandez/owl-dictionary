@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% include 'navbar.html' %}
+
+{% import "bootstrap/wtf.html" as wtf %}
+{% block content %}
+
+    <br>
+    <div class="form-group">
+        <br/>
+        <h1 class="title">Owlbot Dictionary</h1>
+        <br/>
+        {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "dark"})  }}
+    </div>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class=flashes>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    <br/>
+    <h1>{{ word_searched }}</h1>
+
+    {% if word %}
+        <table class="table-bordered table">
+
+            <tbody>
+            <tr>
+                <td><b>Definition:</b> {{ definition }} </td>
+                {% if img == None %}
+                    <td rowspan="3">No image available</td>
+                {% else %}
+                    <td rowspan="3"><img src="{{ img }}"></td>
+                {% endif %}
+            </tr>
+            <tr>
+                <td><b>Example:</b> {{ example }}</td>
+            </tr>
+            <tr>
+                <td><b>Emoji:</b> {{ emoji }}</td>
+            </tr>
+
+            </tbody>
+        </table>
+
+    {% endif %}
+
+
+{% endblock %}
